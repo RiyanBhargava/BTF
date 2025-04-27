@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTF Attendance System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Fallback logo if image is missing */
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none;
+        }
+        
+        img.logo-img {
+            height: 60px;
+        }
+        
+        img.logo-img[src="logo.png"]:not([src=""]):not([src="data:,"]) {
+            /* Image loaded successfully */
+        }
+        
+        img.logo-img:not([src="logo.png"]), img.logo-img[src=""], img.logo-img[src="data:,"] {
+            /* Image failed to load */
+            display: none;
+        }
+        
+        img.logo-img:not([src="logo.png"]) ~ .logo-text, 
+        img.logo-img[src=""] ~ .logo-text, 
+        img.logo-img[src="data:,"] ~ .logo-text {
+            /* Show text logo when image fails */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img class="logo-img" src="logo.png" alt="BTF Logo" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
+                <div class="logo-text">BITS TECH FEST</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Agenda</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="register-btn">Register</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="auth-container">
+                <h1>CLUB EVENTS</h1>
+                <p>Manage attendance for your BITS Tech Fest 2025 events</p>
+                
+                <div class="auth-box">
+                    <h2>Club Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter club username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>BITS Tech Fest 2025 - Birla Institute of Technology And Science, Dubai, UAE</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
